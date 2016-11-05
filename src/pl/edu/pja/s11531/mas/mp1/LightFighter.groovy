@@ -1,8 +1,5 @@
 package pl.edu.pja.s11531.mas.mp1
 
-/**
- * Created by kris on 05.11.16.
- */
 class LightFighter extends SpaceShip {
     final static CREW_COUNT = 2
 

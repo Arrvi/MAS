@@ -1,8 +1,5 @@
 package pl.edu.pja.s11531.mas.mp1
 
-/**
- * Created by kris on 05.11.16.
- */
 class CargoShip extends SpaceShip {
     List<Cargo> cargo = []
 
@@ -13,5 +10,10 @@ class CargoShip extends SpaceShip {
     @Override
     public BigDecimal getMass() {
         return super.mass + cargo.sum {it.mass}
+    }
+
+    @Override
+    String toString() {
+        return super.toString() + ", cargo=$cargo"
     }
 }
