@@ -6,6 +6,10 @@ package pl.edu.pja.s11531.mas.mp1
 abstract class BaseObject implements Serializable {
     private static Map<Class<? extends BaseObject>, List<BaseObject>> extent = [:].withDefault {[]};
 
+    BaseObject() {
+        addObject this
+    }
+
     protected static addObject(BaseObject object) {
         extent[object.class].add object
     }
