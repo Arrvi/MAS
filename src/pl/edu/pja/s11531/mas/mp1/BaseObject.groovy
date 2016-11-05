@@ -10,19 +10,44 @@ abstract class BaseObject implements Serializable {
         addObject this
     }
 
-    protected static addObject(BaseObject object) {
-        extent[object.class].add object
+    protected static <C extends BaseObject> void addObject(C object) {
+        Class cls = object.class
+        while (cls && cls != BaseObject.class) {
+            extent[cls].add object
+            cls = cls.superclass
+        }
     }
 
     public static <C extends BaseObject> List<C> getExtent(Class<C> cls) {
         return (List<C>) extent[cls];
     }
 
+    public static clearExtent() {
+        extent.clear()
+    }
+
+    public static clearExtent(Class<? extends BaseObject> cls) {
+        extent.each {
+            if (cls.isAssignableFrom(it.key) && it.key != cls) {
+                it.value.clear()
+            }
+        }
+        def classExtent = extent[cls]
+        Class currentClass = cls.superclass
+        while (currentClass && currentClass != BaseObject.class) {
+            extent[currentClass].removeAll classExtent
+            currentClass = currentClass.superclass
+        }
+        extent[cls].clear()
+    }
+
     public static saveAll(File store) {
         def stream = store.newObjectOutputStream()
+        def objects = new HashSet<Class<? extends BaseObject>>();
         extent.each {
-            it.getValue().each stream.&leftShift
+            it.value.each objects.&add
         }
+        objects.each stream.&leftShift
         stream.close()
     }
 
