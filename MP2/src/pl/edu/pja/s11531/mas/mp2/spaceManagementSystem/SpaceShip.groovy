@@ -1,14 +1,17 @@
-package pl.edu.pja.s11531.mas.mp2
+package pl.edu.pja.s11531.mas.mp2.spaceManagementSystem
 
-class SpaceShip extends BaseObject {
+import pl.edu.pja.s11531.mas.mp2.associations.Association
+import pl.edu.pja.s11531.mas.mp2.associations.Component
+
+ class SpaceShip extends Component<Company> {
     public static final BigDecimal CREW_MASS = 0.1
     String name
     BigDecimal mass
     int crewCount
     String function
 
-    SpaceShip(String name, BigDecimal mass, int crewCount, String function = null) {
-        super()
+    SpaceShip(Company company, String name, BigDecimal mass, int crewCount, String function = null) {
+        super(company)
         this.name = name
         this.mass = mass
         this.crewCount = crewCount
@@ -27,4 +30,14 @@ class SpaceShip extends BaseObject {
     String toString() {
         return "SpaceShip name=$name, mass=$mass t, crew=$crewCount people" + (function ? ", function=$function" : "")
     }
-}
+
+    @Override
+    def getMaxMultiplicity(Class<Fleet> cls) {
+        return null
+    }
+
+     @Override
+     def getMaxMultiplicity(Class cls) {
+         return null
+     }
+ }
