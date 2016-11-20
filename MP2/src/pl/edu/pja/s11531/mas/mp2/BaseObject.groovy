@@ -6,7 +6,7 @@ abstract class BaseObject implements Serializable {
      * Note that each object is stored under its class key and all of its super classes. In other words class entry
      * contains all of its objects and objects of its subclass.
      */
-    private static Map<Class<? extends BaseObject>, List<BaseObject>> extent = [:].withDefault {[]};
+    private static Map<Class<? extends BaseObject>, List<BaseObject>> extent = [:].withDefault { [] };
 
     /**
      * Base constructor. Adds object to extent.

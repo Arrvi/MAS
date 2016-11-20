@@ -11,11 +11,11 @@ class CargoShip extends SpaceShip {
 
     @Override
     public BigDecimal getMass() {
-        return super.mass + (cargo.values().sum {it.mass} as BigDecimal)
+        return super.mass + (cargo.values().sum { it.mass } as BigDecimal)
     }
 
     void addCargo(String bay, Cargo cargo) {
-        if ( storage[bay] ) {
+        if (storage[bay]) {
             throw new AssociationViolationException("Cargo bay [$bay] is full", this, cargo)
         }
         storage[bay] = cargo

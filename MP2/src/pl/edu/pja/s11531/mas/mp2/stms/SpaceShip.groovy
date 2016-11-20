@@ -2,7 +2,6 @@ package pl.edu.pja.s11531.mas.mp2.stms
 
 import pl.edu.pja.s11531.mas.mp2.LinkedObject
 
-import java.time.Instant
 import java.time.LocalDate
 
 class SpaceShip extends LinkedObject {

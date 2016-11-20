@@ -2,9 +2,6 @@ package pl.edu.pja.s11531.mas.mp2.stms
 
 import java.time.LocalDate
 
-/**
- * Created by kris on 11/20/16.
- */
 class CrewService {
     final Crew crew
     final SpaceShip spaceShip
@@ -27,6 +24,6 @@ class CrewService {
 
     @Override
     String toString() {
-        "$crew.name serving on $spaceShip.name from $started" + (ended?" to $ended":"")
+        "$crew.name serving on $spaceShip.name from $started" + (ended ? " to $ended" : "")
     }
 }

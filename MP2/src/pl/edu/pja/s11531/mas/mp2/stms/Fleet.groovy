@@ -2,9 +2,6 @@ package pl.edu.pja.s11531.mas.mp2.stms
 
 import pl.edu.pja.s11531.mas.mp2.LinkedObject
 
-/**
- * Created by kris on 11/19/16.
- */
 class Fleet extends LinkedObject {
     final String name
     Set<SpaceShip> spaceShips = new HashSet<>()
@@ -14,7 +11,7 @@ class Fleet extends LinkedObject {
     }
 
     Fleet leftShift(SpaceShip spaceShip) {
-        if ( spaceShip.fleet == this && spaceShips.contains(spaceShip) ) {
+        if (spaceShip.fleet == this && spaceShips.contains(spaceShip)) {
             return this
         }
         spaceShip.fleet?.spaceShips?.remove(spaceShip)

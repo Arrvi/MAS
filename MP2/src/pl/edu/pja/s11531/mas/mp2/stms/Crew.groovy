@@ -14,7 +14,7 @@ class Crew extends LinkedObject {
     }
 
     CrewService getCurrentService() {
-        service.find {it.ended == null}
+        service.find { it.ended == null }
     }
 
     SpaceShip getSpaceShip() {
@@ -22,12 +22,12 @@ class Crew extends LinkedObject {
     }
 
     void addService(CrewService service) {
-        this.service.findAll {it.ended == null}*.ended = LocalDate.now()
+        this.service.findAll { it.ended == null }*.ended = LocalDate.now()
         this.service << service
     }
 
     @Override
     String toString() {
-        "Crew $name" + (spaceShip?" serving on $spaceShip":"")
+        "Crew $name" + (spaceShip ? " serving on $spaceShip" : "")
     }
 }

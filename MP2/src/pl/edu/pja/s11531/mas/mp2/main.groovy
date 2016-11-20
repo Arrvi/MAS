@@ -2,12 +2,10 @@ package pl.edu.pja.s11531.mas.mp2
 
 import pl.edu.pja.s11531.mas.mp2.stms.*
 
-import java.time.Instant
 import java.time.LocalDate
 import java.time.Period
-import java.time.temporal.TemporalAmount
 
-import static pl.edu.pja.s11531.util.AssertionUtil.*
+import static pl.edu.pja.s11531.util.AssertionUtil.assertException
 
 Company cargoCompany = new Company('Cargo company')
 Company genericCompany = new Company('Xinh Zheng Premium Ships')
@@ -21,7 +19,7 @@ CargoShip cargoShip = new CargoShip(cargoCompany, 'Smaller, but significant carg
 // kompozycja
 assert cargoCompany.spaceShips.size() == 3
 assert genericCompany.spaceShips.size() == 2
-assertException AssociationViolationException.class, {genericCompany.addSpaceShip(massiveShip)}
+assertException AssociationViolationException.class, { genericCompany.addSpaceShip(massiveShip) }
 
 cargoShip.addCargo 'ammo', new Cargo('Ammo', 10)
 cargoShip.addCargo 'fridge1', new Cargo('Food', 5)
@@ -39,7 +37,7 @@ massiveShip.addCargo 'bay2', new Cargo('More containers', 20000)
 // kwalifikowana
 assert cargoShip.storage.size() == 4
 assert massiveShip.storage.size() == 6
-assertException AssociationViolationException.class, {massiveShip.addCargo 'vault1', new Cargo('More gold', 1000)}
+assertException AssociationViolationException.class, { massiveShip.addCargo 'vault1', new Cargo('More gold', 1000) }
 assert massiveShip.takeCargo('bay1') == containers
 assert massiveShip.storage.size() == 5
 
@@ -82,6 +80,7 @@ Fleet chineseFleet = new Fleet("Xinh Zheng fleet")
 pirates << smallShip << largeShip
 chineseFleet << cargoShip
 
+// binarna
 assert smallShip.fleet == pirates
 assert mediumShip.fleet == null
 assert largeShip.fleet == pirates

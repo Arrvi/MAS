@@ -1,8 +1,5 @@
 package pl.edu.pja.s11531.mas.mp2
 
-/**
- * Created by kris on 11/19/16.
- */
 class AssociationViolationException extends IllegalArgumentException {
     Object baseObject
     Object linkedObject
