@@ -1,4 +1,4 @@
-package pl.edu.pja.s11531.mas.mp2.associations
+package pl.edu.pja.s11531.mas.mp2
 
 abstract class BaseObject implements Serializable {
     /**
