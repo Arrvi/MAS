@@ -5,8 +5,11 @@ import pl.edu.pja.s11531.mas.mp4.LinkedObject
 
 import java.time.LocalDate
 
-class SpaceShip extends LinkedObject {
+class SpaceShip extends LinkedObject implements Serviceable {
     public static final BigDecimal CREW_MASS = 0.1
+    public static final String FLAG_SHIP_FUNCTION = "Flag ship"
+
+    Integer registrationNumber
 
     final Company company
     final List<CrewService> crewList = []
@@ -62,6 +65,17 @@ class SpaceShip extends LinkedObject {
             throw new ConstraintViolationException("New captain has to be a crew member")
         }
         captainService = cptService
+    }
+
+    Crew getCaptain() {
+        return captainService.crew
+    }
+
+    void setRegistrationNumber(Integer number) {
+        if (number in getExtent(SpaceShip.class)*.registrationNumber) {
+            throw new ConstraintViolationException("Number $number is already registered")
+        }
+        registrationNumber = number
     }
 
     void setFleet(Fleet fleet) {
