@@ -1,8 +1,7 @@
-package pl.edu.pja.s11531.mas.mp2.stms
+package pl.edu.pja.s11531.mas.mp4.stms
 
-import pl.edu.pja.s11531.mas.mp2.LinkedObject
+import pl.edu.pja.s11531.mas.mp4.LinkedObject
 
-import java.time.Instant
 import java.time.LocalDate
 
 class Crew extends LinkedObject {

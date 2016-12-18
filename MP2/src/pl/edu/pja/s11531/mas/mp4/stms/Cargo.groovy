@@ -1,6 +1,6 @@
-package pl.edu.pja.s11531.mas.mp2.stms
+package pl.edu.pja.s11531.mas.mp4.stms
 
-import pl.edu.pja.s11531.mas.mp2.LinkedObject
+import pl.edu.pja.s11531.mas.mp4.LinkedObject
 
 class Cargo extends LinkedObject {
     String name

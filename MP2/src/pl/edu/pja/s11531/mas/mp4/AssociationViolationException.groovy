@@ -1,4 +1,4 @@
-package pl.edu.pja.s11531.mas.mp2
+package pl.edu.pja.s11531.mas.mp4
 
 class AssociationViolationException extends IllegalArgumentException {
     Object baseObject

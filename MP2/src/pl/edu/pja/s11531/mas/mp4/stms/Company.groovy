@@ -1,7 +1,7 @@
-package pl.edu.pja.s11531.mas.mp2.stms
+package pl.edu.pja.s11531.mas.mp4.stms
 
-import pl.edu.pja.s11531.mas.mp2.AssociationViolationException
-import pl.edu.pja.s11531.mas.mp2.LinkedObject
+import pl.edu.pja.s11531.mas.mp4.AssociationViolationException
+import pl.edu.pja.s11531.mas.mp4.LinkedObject
 
 class Company extends LinkedObject {
     final String name

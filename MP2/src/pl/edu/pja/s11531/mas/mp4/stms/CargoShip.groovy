@@ -1,6 +1,6 @@
-package pl.edu.pja.s11531.mas.mp2.stms
+package pl.edu.pja.s11531.mas.mp4.stms
 
-import pl.edu.pja.s11531.mas.mp2.AssociationViolationException
+import pl.edu.pja.s11531.mas.mp4.AssociationViolationException
 
 class CargoShip extends SpaceShip {
     final Map<String, Cargo> storage = [:]
